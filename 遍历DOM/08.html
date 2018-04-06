@@ -169,13 +169,14 @@
 	</div>
 
 	<script type="text/javascript">
+		//全局变量
 		var treeNodes = [];
 		var root = document.querySelector('.root');
 		var isComplete = true;
 		var isFind = false;
 		var divs = document.getElementsByTagName('div');
 	
-
+		
 		for(var i = 0;i < divs.length;i ++){
 			divs[i].style.background = '#fff';
 			divs[i].addEventListener('click', function(e){
@@ -196,7 +197,7 @@
 		function trim(str){ 
 		  	return str.replace(/(^\s*)|(\s*$)/g, ""); 
 		}
-
+		//初始化
 		function inital(){
 			treeNodes = [];
 			isComplete = true;
@@ -208,7 +209,7 @@
 				divs[i].style.color = 'black';
 			}
 		}
-
+		//遍历并显示节点
 		function show(){
 			var i = 0;
 			isComplete = false;
@@ -227,7 +228,7 @@
 				i ++;
 			}, 100);
 		}
-
+		//查找
 		function search(){
 			var i = 0;
 			var con = document.getElementsByTagName('input')[0].value;
@@ -286,7 +287,7 @@
 		}
 
 		
-
+		//前序遍历(NLR)
 		function preOrder(node){
 			if(node){
 				treeNodes.push(node);
@@ -296,7 +297,7 @@
 				}
 			}
 		}
-
+		//后序遍历(LRD)
 		function postOrder(node){
 			if(node){
 				var num = node.children;
@@ -306,7 +307,7 @@
 				treeNodes.push(node);
 			}
 		}
-
+		//层次遍历
 		function wideTraverse(node){
 			var que = [];
 			que.push(node);
@@ -321,7 +322,7 @@
 				}
 			}
 		}
-
+		//前序按钮
 		function btn_preOrder(){
 			document.querySelector('.btn_preOrder').addEventListener('click',function(){
 				if(isComplete){
@@ -334,7 +335,7 @@
 				
 			});
 		}
-
+		//后序按钮
 		function btn_postOrder(){
 			document.querySelector('.btn_postOrder').addEventListener('click',function(){
 				if(isComplete){
@@ -346,7 +347,7 @@
 				}
 			});
 		}
-
+		//层次按钮
 		function btn_wideTravsal(){
 			document.querySelector('.btn_wideTravsal').addEventListener('click',function(){
 				if(isComplete){
@@ -358,7 +359,7 @@
 				}
 			});
 		}
-
+		//层次按钮
 		function btn_search(){
 			document.querySelector('.btn_search').addEventListener('click',function(){
 				if(isComplete){
@@ -374,7 +375,7 @@
 				}
 			});
 		}
-
+		//删除按钮
 		function btn_delete(){
 			document.querySelector('.btn_delete').addEventListener('click',function(){
 				for(var i = 0;i < divs.length;i ++){
@@ -384,7 +385,7 @@
 				}
 			});
 		}
-
+		//添加按钮
 		function btn_add(){
 			var count =  0;
 			document.querySelector('.btn_add').addEventListener('click', function(){
@@ -422,7 +423,7 @@
 			});
 		}
 
-
+		//页面加载完成后,按钮事件等待被触发
 		window.addEventListener('load', function(){
 			 btn_preOrder();
 			 btn_postOrder();
